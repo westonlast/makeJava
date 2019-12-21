@@ -1,0 +1,5 @@
+#The second parameter to this recursive function must be a directory name-eliminating pattern (more than just "%").
+#Passing just "%" as the second parameter will result in non-leaves (directories) getting concatenated without
+#delimiting spaces.  Solving this with a space between the "filter" and "call" functions was avoided because this
+#causes extra whitespace in the output file list.
+recursiveFilter = ${foreach var,${wildcard ${1}*},${filter ${2},${var}}${call recursiveFilter,${var}/,${2}}}

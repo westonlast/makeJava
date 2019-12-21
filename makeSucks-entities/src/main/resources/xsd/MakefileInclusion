@@ -1,0 +1,6 @@
+schemas := lol1.xsd lol2.xsd
+
+#Use Bash to convert the basename to the lowercase package name, given a schema file.
+getLowercaseBasename = ${shell basename=${basename ${schema}};echo $${basename,,}}
+
+packageDirectory := com/lol/makeSucks/entities
